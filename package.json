@@ -9,8 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "dayjs": "^1.11.13",
     "formik": "^2.4.6",
     "react": "^18.2.0",
+    "react-big-calendar": "^1.16.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.28.0",
     "yup": "^1.4.0"
