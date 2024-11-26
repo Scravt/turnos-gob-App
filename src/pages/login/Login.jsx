@@ -4,33 +4,36 @@ import * as Yup from 'yup'
 import { NavLink } from 'react-router-dom'
 import InputField from '../../componentes/input/InputField'
 import { SubmitButton } from '../../componentes/bottons/SubmitButton'
-import {CheckboxField} from '../../componentes/input/CheckBoxField'
+import { CheckboxField } from '../../componentes/input/CheckBoxField'
+import Atender from '../../componentes/banners/Atender'
 
 const Login = () => {
-    const formik = useFormik({
-        initialValues: {
-          correoElectronico: "",
-          password: "",
-          savePassword: false,
-        },
-        validationSchema: Yup.object({
-          correoElectronico: Yup.string()
-            .email("Correo electrónico inválido")
-            .required("Campo requerido"),
-          password: Yup.string().required("Campo requerido"),
-        }),
-        onSubmit: (formData) => {
-          console.log(formData);
-        },
-      });
-    
-      const isFormValid = Object.keys(formik.errors).length === 0;
-    
-      const admi = false;
+  const formik = useFormik({
+    initialValues: {
+      correoElectronico: "",
+      password: "",
+      savePassword: false,
+    },
+    validationSchema: Yup.object({
+      correoElectronico: Yup.string()
+        .email("Correo electrónico inválido")
+        .required("Campo requerido"),
+      password: Yup.string().required("Campo requerido"),
+    }),
+    onSubmit: (formData) => {
+      console.log(formData);
+    },
+  });
+
+  const isFormValid = Object.keys(formik.errors).length === 0;
+
+  const admi = false;
 
 
-    return (
-        <div className="flex flex-col  justify-center items-center min-h-screen relative -top-1/4">
+  return (
+    <div className='h-screen w-screen flex'>
+      <Atender />
+      <div className=" w-1/2 flex flex-col  justify-center items-center min-h-screen relative -top-1/4">
         <div className="w-2/3 lg:mt-0 mt-96 lg:w-1/4 lg:gap-24">
           <h1 className="text-4xl text-fluColorPrimary font-fluTitle pb-5">
             Inicio de sesión
@@ -72,7 +75,7 @@ const Login = () => {
               )}
             </div>
             <SubmitButton isFormValid={isFormValid}>
-                Iniciar Sesión
+              Iniciar Sesión
             </SubmitButton>
           </form>
         </div>
@@ -83,7 +86,10 @@ const Login = () => {
           </NavLink>
         </div>
       </div>
-    )
+    </div>
+
+
+  )
 }
 
 export default Login
